@@ -20,29 +20,32 @@ const Course = () => {
 
   return (
     <>
-      <h1>Course</h1>
-      <hr />
+    <h1>Course</h1>
+    <hr />
+      <div className="grid grid-cols-3 gap-6 ">
+        
 
-      {data.map((course) => (
-        <CourseCard key={course.id}{...course}/>
-      ))}
+        {data.map((course) => (
+          <CourseCard key={course.id} {...course} />
+        ))}
+      </div>
     </>
   );
 };
 
 const CourseCard = (props) => {
-    return (
-      <div style={{ border: "1px solid black", padding: 20, marginBottom: 10 }}>
-        <div>
-          <img src={props.picture} alt="" style={{ width: 100 }}/>
-        </div>
-        <div>{props.title}</div>
-        <div>{props.detail}</div>
-        <div>
-        <NavLink to={"/course/" + props.id}>เนื้อหาในหลักสูตร</NavLink>
-        </div>
+  return (
+    <div className="bg-sky-600 max-w-md p-6 text-white">
+      <div>
+        <img src={props.picture} alt="" />
       </div>
-    );
-  }
+      <div>{props.title}</div>
+      <div>{props.detail}</div>
+      <div>
+        <NavLink to={"/course/" + props.id}>เนื้อหาในหลักสูตร</NavLink>
+      </div>
+    </div>
+  );
+};
 
 export default Course;

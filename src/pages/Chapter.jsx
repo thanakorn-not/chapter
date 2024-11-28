@@ -22,7 +22,28 @@ const Chapter = () => {
     callApi();
     console.log(data);
   }, []);
-  return <div>Chapter ID: {id}</div>;
+  return (
+    <>
+    {data.map((c) => (
+      <ChapterCourse key={c.ch_id} {...c}/>
+    ))}
+    
+    </>
+  );
 };
+const ChapterCourse = (props) => {
+  return (
+    <div style={{ border: "1px solid black", padding: 20, marginBottom: 10 }}>
+      
+      <div>{props.ch_title}</div>
+      <div>
+      <iframe src={"https://www.youtube.com/embed/" + props.ch_url}></iframe>
+      </div>
+      <div>view:{props.ch_view}
+           time:{props.ch_timetotal}
+      </div>
+    </div>
+  );
+}
 
 export default Chapter;
