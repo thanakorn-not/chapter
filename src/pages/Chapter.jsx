@@ -24,23 +24,29 @@ const Chapter = () => {
   }, []);
   return (
     <>
+    <h1 className="text-3xl text-center p-2">วีดีโอ</h1>
+    <div className="flex justify-center">
+    <div className="grid grid-cols-3 gap-6 ">
     {data.map((c) => (
       <ChapterCourse key={c.ch_id} {...c}/>
     ))}
+    </div>
+    </div>
     
     </>
   );
 };
 const ChapterCourse = (props) => {
   return (
-    <div style={{ border: "1px solid black", padding: 20, marginBottom: 10 }}>
+    <div className="bg-sky-600 max-w-md p-6 text-white rounded-xl shadow-lg">
       
-      <div>{props.ch_title}</div>
+      <div className="text-lg p-2">{props.ch_title}</div>
       <div>
-      <iframe src={"https://www.youtube.com/embed/" + props.ch_url}></iframe>
+      <iframe className="w-full" src={"https://www.youtube.com/embed/" + props.ch_url}></iframe>
       </div>
-      <div>view:{props.ch_view}
-           time:{props.ch_timetotal}
+      <div className="flex justify-between p-2">
+      <div className="text-lg">view:{props.ch_view}</div>
+      <div className="text-lg">time:{props.ch_timetotal}</div>
       </div>
     </div>
   );
